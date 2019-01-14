@@ -1011,6 +1011,33 @@ tweet_strings &lt;- c(
 </section>
 <section data-transition="linear" data-transition-speed="default">
 
+<div class="slideContent noTitle small-code" >
+<h1>Dataframe example</h1>
+
+<pre><code class="r">library(tidyverse)
+df &lt;- tribble(
+  ~input_text,
+  &quot;I want &lt;this stuff&gt;&quot;,
+  &quot;&lt;and some&gt; of this&quot;,
+  &quot;It may &lt;be in the&gt; middle&quot;
+)
+df %&gt;%
+  mutate(capture = str_match(input_text, &quot;&lt;(.*?)&gt;&quot;) %&gt;% .[,2])
+</code></pre>
+
+<pre><code># A tibble: 3 x 2
+  input_text                capture   
+  &lt;chr&gt;                     &lt;chr&gt;     
+1 I want &lt;this stuff&gt;       this stuff
+2 &lt;and some&gt; of this        and some  
+3 It may &lt;be in the&gt; middle be in the 
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+
 <div class="slideContent noTitle" >
 <ul>
 <li><code>stringr</code> Documentation: <a href="https://stringr.tidyverse.org/index.html">https://stringr.tidyverse.org/index.html</a>

@@ -239,6 +239,37 @@ str_match_all(tweet_strings, "(\\d+(?:.\\d+)*)")
 
 
 ========================================================
+class:small-code
+# Dataframe example
+
+```r
+library(tidyverse)
+df <- tribble(
+  ~input_text,
+  "I want <this stuff>",
+  "<and some> of this",
+  "It may <be in the> middle"
+)
+df %>%
+  mutate(capture = str_match(input_text, "<(.*?)>") %>% .[,2])
+```
+
+```
+# A tibble: 3 x 2
+  input_text                capture   
+  <chr>                     <chr>     
+1 I want <this stuff>       this stuff
+2 <and some> of this        and some  
+3 It may <be in the> middle be in the 
+```
+
+
+
+
+
+
+
+========================================================
 - `stringr` Documentation: https://stringr.tidyverse.org/index.html
     - Includes links to function documentation, cheat sheet, and vignettes.
 - Regular expression resources:
