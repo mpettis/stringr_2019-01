@@ -25,6 +25,7 @@ Motivation
 
 What Problems Do You Attack with Regular Expressions / `stringr`?
 ========================================================
+class:small-code
 ### Detecting strings and string patterns
 
 
@@ -47,6 +48,7 @@ tweet_strings <- c(
 
 
 ========================================================
+class:small-code
 ### Detecting strings and string patterns
 
 Which elements contain the string 'rstats'?
@@ -69,6 +71,18 @@ str_subset(tweet_strings, "rstats")
 ```
 [1] "The stringr packages has a new version! Easy as 123! #rstats"                                         
 [2] "CRISPR is stores 21 of 23 chromosomal DNA sequence in a stringrepository object. From @formerstatsguy"
+```
+***
+```
+"The stringr packages has a new version! Easy as 123! #rstats"
+
+"Paris Hilton agrees to celebrity box all 4,123 members of 'Menudo' #blessed"
+
+"CRISPR is stores 21 of 23 chromosomal DNA sequence in a stringrepository object. From @formerstatsguy"
+
+"We'll always have Paris -- Rick, to Ilsa, in 'Casablanca'. #toast #glassed"
+
+"Feel-good music throwback: '1-2-3-4', Feist"
 ```
 
 
@@ -270,8 +284,8 @@ df %>%
 
 
 ========================================================
+- This presentation: https://github.com/mpettis/stringr_2019-01
 - `stringr` Documentation: https://stringr.tidyverse.org/index.html
-    - Includes links to function documentation, cheat sheet, and vignettes.
 - Regular expression resources:
     - Definitive, original book: https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124
     - A free, online book: https://www.gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf
