@@ -137,6 +137,77 @@ What were the matches?
 
 
 
+========================================================
+class:small-code
+### Capturing strings
+
+Once we have match, with patterns, often we want to record what the pattern matched.  Let's look at capturing numbers
+
+
+```r
+str_extract(tweet_strings, "\\d+")
+```
+
+```
+[1] "123" "4"   "21"  NA    "1"  
+```
+***
+```
+"The stringr packages has a new version! Easy as 123! #rstats"
+
+"Paris Hilton agrees to celebrity box all 4,123 members of 'Menudo' #blessed"
+
+"CRISPR is stores 21 of 23 chromosomal DNA sequence in a stringrepository object. From @formerstatsguy"
+
+"We'll always have Paris -- Rick, to Ilsa, in 'Casablanca'. #toast #glassed"
+
+"Feel-good music throwback: '1-2-3-4', Feist"
+```
+
+
+
+========================================================
+class:small-code
+### Capturing strings
+
+Note we didn't capture all of the numbers.  How can we do that?
+
+
+```r
+str_extract_all(tweet_strings, "\\d+")
+```
+
+```
+[[1]]
+[1] "123"
+
+[[2]]
+[1] "4"   "123"
+
+[[3]]
+[1] "21" "23"
+
+[[4]]
+character(0)
+
+[[5]]
+[1] "1" "2" "3" "4"
+```
+***
+```
+"The stringr packages has a new version! Easy as 123! #rstats"
+
+"Paris Hilton agrees to celebrity box all 4,123 members of 'Menudo' #blessed"
+
+"CRISPR is stores 21 of 23 chromosomal DNA sequence in a stringrepository object. From @formerstatsguy"
+
+"We'll always have Paris -- Rick, to Ilsa, in 'Casablanca'. #toast #glassed"
+
+"Feel-good music throwback: '1-2-3-4', Feist"
+```
+
+
+
 
 ========================================================
 class:small-code
@@ -255,6 +326,9 @@ str_match_all(tweet_strings, "(\\d+(?:.\\d+)*)")
 ========================================================
 class:small-code
 # Dataframe example
+Here I use `str_match()` rather than `str_extract()` because I use `<>` to
+identify where to do the capture, but I don't want those characters in the
+captured text itself.
 
 ```r
 library(tidyverse)
