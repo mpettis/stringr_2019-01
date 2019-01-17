@@ -358,6 +358,8 @@ df %>%
 
 
 ========================================================
+class:small-code
+```
 - This presentation: https://github.com/mpettis/stringr_2019-01
 - `stringr` Documentation: https://stringr.tidyverse.org/index.html
 - Regular expression resources:
@@ -370,7 +372,7 @@ df %>%
         - https://www.regextester.com/
 - Previous presentations:
     - Nick Salikowski: https://github.com/NickSalkowski/Regular-Expressions-with-R
-
+```
 
 
 Questions, and Thank You

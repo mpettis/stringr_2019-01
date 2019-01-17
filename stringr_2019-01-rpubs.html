@@ -906,6 +906,85 @@ tweet_strings &lt;- c(
 
 <p>Once we have match, with patterns, often we want to record what the pattern matched.  Let&#39;s look at capturing numbers</p>
 
+<pre><code class="r">str_extract(tweet_strings, &quot;\\d+&quot;)
+</code></pre>
+
+<pre><code>[1] &quot;123&quot; &quot;4&quot;   &quot;21&quot;  NA    &quot;1&quot;  
+</code></pre>
+
+
+</div>
+
+<div class="column column2 slideContent noTitle small-code" >
+
+
+<pre><code>&quot;The stringr packages has a new version! Easy as 123! #rstats&quot;
+
+&quot;Paris Hilton agrees to celebrity box all 4,123 members of &#39;Menudo&#39; #blessed&quot;
+
+&quot;CRISPR is stores 21 of 23 chromosomal DNA sequence in a stringrepository object. From @formerstatsguy&quot;
+
+&quot;We&#39;ll always have Paris -- Rick, to Ilsa, in &#39;Casablanca&#39;. #toast #glassed&quot;
+
+&quot;Feel-good music throwback: &#39;1-2-3-4&#39;, Feist&quot;
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+
+<div class="column column1 slideContent noTitle small-code" >
+<h3>Capturing strings</h3>
+
+<p>Note we didn&#39;t capture all of the numbers.  How can we do that?</p>
+
+<pre><code class="r">str_extract_all(tweet_strings, &quot;\\d+&quot;)
+</code></pre>
+
+<pre><code>[[1]]
+[1] &quot;123&quot;
+
+[[2]]
+[1] &quot;4&quot;   &quot;123&quot;
+
+[[3]]
+[1] &quot;21&quot; &quot;23&quot;
+
+[[4]]
+character(0)
+
+[[5]]
+[1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot;
+</code></pre>
+
+
+</div>
+
+<div class="column column2 slideContent noTitle small-code" >
+
+
+<pre><code>&quot;The stringr packages has a new version! Easy as 123! #rstats&quot;
+
+&quot;Paris Hilton agrees to celebrity box all 4,123 members of &#39;Menudo&#39; #blessed&quot;
+
+&quot;CRISPR is stores 21 of 23 chromosomal DNA sequence in a stringrepository object. From @formerstatsguy&quot;
+
+&quot;We&#39;ll always have Paris -- Rick, to Ilsa, in &#39;Casablanca&#39;. #toast #glassed&quot;
+
+&quot;Feel-good music throwback: &#39;1-2-3-4&#39;, Feist&quot;
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+
+<div class="column column1 slideContent noTitle small-code" >
+<h3>Capturing strings</h3>
+
+<p>Once we have match, with patterns, often we want to record what the pattern matched.  Let&#39;s look at capturing numbers</p>
+
 <pre><code class="r">str_match(tweet_strings, &quot;(\\d+)&quot;)
 </code></pre>
 
@@ -1031,6 +1110,10 @@ tweet_strings &lt;- c(
 <div class="slideContent noTitle small-code" >
 <h1>Dataframe example</h1>
 
+<p>Here I use <code>str_match()</code> rather than <code>str_extract()</code> because I use <code>&lt;&gt;</code> to
+identify where to do the capture, but I don&#39;t want those characters in the
+captured text itself.</p>
+
 <pre><code class="r">library(tidyverse)
 df &lt;- tribble(
   ~input_text,
@@ -1055,30 +1138,20 @@ df %&gt;%
 </section>
 <section data-transition="linear" data-transition-speed="default">
 
-<div class="slideContent noTitle" >
-<ul>
-<li>This presentation: <a href="https://github.com/mpettis/stringr_2019-01">https://github.com/mpettis/stringr_2019-01</a></li>
-<li><code>stringr</code> Documentation: <a href="https://stringr.tidyverse.org/index.html">https://stringr.tidyverse.org/index.html</a></li>
-<li>Regular expression resources:
-
-<ul>
-<li>Definitive, original book: <a href="https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124">https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124</a></li>
-<li>A free, online book: <a href="https://www.gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf">https://www.gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf</a></li>
-<li>Online, interactive tools to explain/debug regular expressions:
-
-<ul>
-<li><a href="https://regexone.com/">https://regexone.com/</a> (20 interactive lessons)</li>
-<li><a href="https://regex101.com/">https://regex101.com/</a> (explains your patterns)</li>
-<li><a href="https://regexr.com/">https://regexr.com/</a></li>
-<li><a href="https://www.regextester.com/">https://www.regextester.com/</a></li>
-</ul></li>
-</ul></li>
-<li>Previous presentations:
-
-<ul>
-<li>Nick Salikowski: <a href="https://github.com/NickSalkowski/Regular-Expressions-with-R">https://github.com/NickSalkowski/Regular-Expressions-with-R</a></li>
-</ul></li>
-</ul>
+<div class="slideContent noTitle small-code" >
+<pre><code>- This presentation: https://github.com/mpettis/stringr_2019-01
+- `stringr` Documentation: https://stringr.tidyverse.org/index.html
+- Regular expression resources:
+    - Definitive, original book: https://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124
+    - A free, online book: https://www.gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf
+    - Online, interactive tools to explain/debug regular expressions:
+        - https://regexone.com/ (20 interactive lessons)
+        - https://regex101.com/ (explains your patterns)
+        - https://regexr.com/
+        - https://www.regextester.com/
+- Previous presentations:
+    - Nick Salikowski: https://github.com/NickSalkowski/Regular-Expressions-with-R
+</code></pre>
 
 </div>
 
