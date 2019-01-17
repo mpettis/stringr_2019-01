@@ -381,3 +381,4 @@ Matt Pettis
 - email: matthew.pettis@gmail.com
 - github: mpettis
 - twitter: @mtpettis
+- podcast: https://datasciencehappywarriors.podbean.com/
